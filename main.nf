@@ -15,7 +15,7 @@ for (param in required_params) {
 input_ch = Channel.fromPath(file(params.samplesheet, checkIfExists: true))
     .splitCsv(header: true)
     .map { row ->
-        tuple(row.accesion, row.experiment)
+        tuple(row.accession, row.experiment)
     }
 
 workflow {

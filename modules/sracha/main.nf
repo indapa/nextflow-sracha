@@ -1,7 +1,7 @@
 
 process SRACHA_GET {
 
-    tag "$accesion"
+    tag "$accession"
 
     errorStrategy 'retry'
     maxRetries 2
