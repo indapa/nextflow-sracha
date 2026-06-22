@@ -1,5 +1,5 @@
 process SRACHA_GET {
-    tag "$accession"
+    tag "$experiment/$accession"
 
     errorStrategy 'retry'
     maxRetries 2
@@ -13,7 +13,7 @@ process SRACHA_GET {
     container 'indapa/my-sracha:latest'
 
     input:
-    tuple val(accession), val(experiment)
+    tuple val(experiment), val(accession)
 
     output:
     tuple val(accession), path("*.fastq.gz")
