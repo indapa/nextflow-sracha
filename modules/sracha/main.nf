@@ -9,6 +9,9 @@ process SRACHA_GET {
 
     publishDir "${params.outdir}/${experiment}/${accession}", mode: 'copy', overwrite: true
 
+    // Point this directly to your new Docker Hub image
+    container 'indapa/my-sracha:latest'
+
     input:
     tuple val(accession), val(experiment)
 
