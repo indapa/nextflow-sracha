@@ -1,6 +1,4 @@
-
 process SRACHA_GET {
-
     tag "$accession"
 
     errorStrategy 'retry'
@@ -11,16 +9,13 @@ process SRACHA_GET {
 
     publishDir "${params.outdir}/${experiment}/${accession}", mode: 'copy', overwrite: true
 
-    container 'quay.io/biocontainers/sracha:0.3.10--h54198d6_0'
-
     input:
     tuple val(accession), val(experiment)
 
     output:
-        tuple val(accession), path("*.fastq.gz")
+    tuple val(accession), path("*.fastq.gz")
     
     script:
-
     """
     sracha get ${accession} 
     """
