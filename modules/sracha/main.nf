@@ -9,7 +9,7 @@ process SRACHA_GET {
     cpus { 4 * task.attempt }
     memory { 8.GB * task.attempt }
 
-    publishDir "${params.outdir}/sracha/${experiment}/${accession}", mode: 'copy', overwrite: true
+    publishDir "${params.outdir}/${experiment}/${accession}", mode: 'copy', overwrite: true
 
     container 'quay.io/biocontainers/sracha:0.3.10--h54198d6_0'
 
