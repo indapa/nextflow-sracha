@@ -18,4 +18,8 @@ input_ch = Channel.fromPath(file(params.samplesheet, checkIfExists: true))
         tuple(row.accesion, row.experiment)
     }
 
-SRACHA_GET(input_ch)
+workflow {
+    SRACHA_GET(input_ch)
+}
+
+
